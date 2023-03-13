@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="781394a1-3b59-4c0a-953b-01afbd2d1cb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/KeyGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/cmd/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/cmd/CommandArgumentEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/cmd/CommandEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/resources/JWKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/utils/JwkUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/utils/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/keytools/utils/KeyUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PrivateKeyFile.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PublicCertFile.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PublicKeyFile.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/keytools/KeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keytools/KeyGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +51,7 @@
   <component name="RunManager" selected="Application.keytools-GenerateJwk">
     <configuration name="keytools-GenerateJwk" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.keytools.KeyGenerator" />
-      <module name="KeyCommandLineUtility" />
+      <module name="key-command-line-utility" />
       <option name="PROGRAM_PARAMETERS" value="--generateJwk -kid 12345" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -74,20 +59,20 @@
     </configuration>
     <configuration name="keytools-GenerateJwt" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.keytools.KeyGenerator" />
-      <module name="KeyCommandLineUtility" />
+      <module name="key-command-line-utility" />
       <option name="PROGRAM_PARAMETERS" value="--generateJwt -kid 12345 -issuer testIssuer -subject &amp;quot;user1&amp;quot; -expiry 6000" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="KeyCommandLineUtility" />
+      <module name="key-command-line-utility" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="KeyCommandLineUtility" />
+      <module name="key-command-line-utility" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,7 +94,7 @@
       <workItem from="1678342911487" duration="1337000" />
       <workItem from="1678344631080" duration="75000" />
       <workItem from="1678344719485" duration="38280000" />
-      <workItem from="1678729505983" duration="324000" />
+      <workItem from="1678729505983" duration="1030000" />
     </task>
     <servers />
   </component>

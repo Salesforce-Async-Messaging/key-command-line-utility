@@ -56,7 +56,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>KeyCommandLineUtility</finalName>
+        <finalName>key-command-line-utility</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

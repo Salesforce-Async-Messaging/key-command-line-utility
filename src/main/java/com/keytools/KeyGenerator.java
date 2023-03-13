@@ -9,7 +9,7 @@ import com.keytools.utils.JwtUtil;
 import com.keytools.utils.KeyUtil;
 
 /**
- * Usage: java -jar KeyCommandLineUtility.jar --command [command argument]
+ * Usage: java -jar key-command-line-utility.jar --command [command argument]
  *
  * 	COMMAND SUMMARY
  * 		--generateJwt 	 Generates JWT
@@ -25,8 +25,8 @@ import com.keytools.utils.KeyUtil;
  * 		-publicCertFile  Public certificate file name, optional for generateJwk commands
  *
  * 	EXAMPLES
- * 		java -jar keytools/target/KeyCommandLineUtility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
- * 		java -jar keytools/target/KeyCommandLineUtility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
+ * 		java -jar key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
+ * 		java -jar key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
  */
 public class KeyGenerator {
 
@@ -86,10 +86,10 @@ public class KeyGenerator {
     }
 
     private static String generateUsage() {
-        // java -jar keytools-1.0.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
-        // java -jar keytools-1.0.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
+        // java -jar key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
+        // java -jar key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
 
-        StringBuilder sb = new StringBuilder("\n\n\nUsage: java -jar KeyCommandLineUtility.jar --command [command argument]")
+        StringBuilder sb = new StringBuilder("\n\n\nUsage: java -jar key-command-line-utility.jar --command [command argument]")
                 .append("\n\n\tCOMMAND SUMMARY")
                 .append("\n\t\t--generateJwt \t Generates JWT")
                 .append("\n\t\t--generateJwk \t Generates JWK")
@@ -102,8 +102,8 @@ public class KeyGenerator {
                 .append("\n\t\t-publicKeyFile \t Publickey file name, optional for generateJwk commands")
                 .append("\n\t\t-publicCertFile  Public certificate file name, optional for generateJwk commands")
                 .append("\n\n\tEXAMPLES")
-                .append("\n\t\tjava -jar KeyCommandLineUtility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key")
-                .append("\n\t\tjava -jar KeyCommandLineUtility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt");
+                .append("\n\t\tjava -jar key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key")
+                .append("\n\t\tjava -jar key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt");
 
         return sb.toString();
     }
