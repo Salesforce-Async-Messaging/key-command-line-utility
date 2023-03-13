@@ -4,6 +4,10 @@
 
 This tool helps you create a JSON Web Key (JWK) and a JSON Web Token (JWT).
 
+### Prerequisites
+
+Be sure that you have a certificate, along with a public and private key, before running these instructions. If you'd like to create a certificate for testing purposes, see [Creating a Certificate](CreatingCertificates.md).
+
 ### Instructions
 
 #### 1. Clone the repository
@@ -11,6 +15,8 @@ This tool helps you create a JSON Web Key (JWK) and a JSON Web Token (JWT).
 `git clone git@github.com:Salesforce-Async-Messaging/key-command-line-utility.git`
 
 #### 2. Build the project
+
+Be sure that you have Maven installed on your system and then enter the following command. 
 
 `mvn clean install`
 
