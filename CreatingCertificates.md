@@ -7,7 +7,7 @@ These instructions can help you create a certificate for testing purposes. For p
 
 ## Generate Certificate and Private Key
 
-The following command helps you generate a test certificate using a command from the OpenSSL toolkit. Replace `PrivateKeyFileName.key` with the filename you want to use for the private key and replace `PublicCertFileName.key` with the filename you want to use for the public certificate file.
+The following command helps you generate a test certificate using a command from the [OpenSSL toolkit](https://www.openssl.org/). Replace `PrivateKeyFileName.key` with the filename you want to use for the private key and replace `PublicCertFileName.key` with the filename you want to use for the public certificate file.
 
 ```
 openssl req -x509 -newkey rsa:2048 -nodes -keyout PrivateKeyFileName.key -out PublicCertFileName.crt -sha256 -days 365
