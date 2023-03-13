@@ -16,7 +16,7 @@ Be sure that you have a certificate, along with a public and private key, before
 
 #### 2. Build the project
 
-Be sure that you have Maven installed on your system and the enter the following command. 
+Be sure that you have Maven installed on your system and then enter the following command. 
 
 `mvn clean install`
 
