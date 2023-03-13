@@ -20,6 +20,10 @@ Be sure that you have Maven installed on your system and then enter the followin
 
 `mvn clean install`
 
+The output resides in the `target` folder.
+
+`cd target`
+
 #### 3. Run the commands
 
 Description: This tool generates a JSON Web Key (JWK) and a JSON Web Token (JWT).
