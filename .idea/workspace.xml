@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="781394a1-3b59-4c0a-953b-01afbd2d1cb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/keytools/KeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/keytools/KeyGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/snimmagadda/dev/esw-jwk/KeyCommandLineUtility",
+    "last_opened_file_path": "/home/snimmagadda/dev/esw-jwk/key-command-line-utility",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
@@ -65,19 +63,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="key-command-line-utility" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="key-command-line-utility" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.keytools-GenerateJwk" />
       <item itemvalue="Application.keytools-GenerateJwt" />
@@ -95,6 +80,7 @@
       <workItem from="1678344631080" duration="75000" />
       <workItem from="1678344719485" duration="38280000" />
       <workItem from="1678729505983" duration="1030000" />
+      <workItem from="1678731889749" duration="306000" />
     </task>
     <servers />
   </component>
