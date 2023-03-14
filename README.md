@@ -46,3 +46,5 @@ Usage: `java -jar key-command-line-utility.jar --command [command argument]`
 	EXAMPLES
 		java -jar key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
 		java -jar key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
+
+This tool outputs a JWK or JWT, which you can copy and paste into a file.
