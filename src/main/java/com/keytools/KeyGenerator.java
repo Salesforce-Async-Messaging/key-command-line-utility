@@ -9,9 +9,10 @@ import com.keytools.utils.JwtUtil;
 import com.keytools.utils.KeyUtil;
 
 /**
- * Usage: java -jar key-command-line-utility.jar --command [command argument]
+ * Usage: java -jar {path/to/}key-command-line-utility.jar --command [command argument]
+ *      where {path/to/} is the path to the command line utility jar file.
  *
- * 	COMMAND SUMMARY
+ * 	COMMANDS
  * 		--generateJwt 	 Generates JWT
  * 		--generateJwk 	 Generates JWK
  *
@@ -19,14 +20,15 @@ import com.keytools.utils.KeyUtil;
  * 		-kid 		     Key identifier, required for both generateJwt & generateJwk commands
  * 		-issuer 	     JWT Issuer, required for generateJwt commands
  * 		-subject 	     Subject, required for generateJwt commands
- * 		-expiry 	     JWT expiry, required for generateJwt commands
- * 		-privateKeyFile  Privatekey file name, optional for generateJwt commands
- * 		-publicKeyFile 	 Publickey file name, optional for generateJwk commands
- * 		-publicCertFile  Public certificate file name, optional for generateJwk commands
+ * 		-expiry 	     JWT expiry in seconds, required for generateJwt command
+ * 		-privateKeyFile  Private key path and filename, required for generateJwt command
+ * 		-publicKeyFile 	 Public key path and filename, required for generateJwk command
+ * 		-publicCertFile  Public certificate path and filename, required for generateJwk command
  *
  * 	EXAMPLES
- * 		java -jar key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key
- * 		java -jar key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt
+ * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile {path/to/}PrivateKeyFile.key
+ * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
+ * 	In these examples, {path/to/} is the path to the specified file.
  */
 public class KeyGenerator {
 
@@ -97,13 +99,14 @@ public class KeyGenerator {
                 .append("\n\t\t-kid \t\t Key identifier, required for both generateJwt & generateJwk commands")
                 .append("\n\t\t-issuer \t JWT Issuer, required for generateJwt commands")
                 .append("\n\t\t-subject \t Subject, required for generateJwt commands")
-                .append("\n\t\t-expiry \t JWT expiry, required for generateJwt commands")
-                .append("\n\t\t-privateKeyFile  Privatekey file name, optional for generateJwt commands")
-                .append("\n\t\t-publicKeyFile \t Publickey file name, optional for generateJwk commands")
-                .append("\n\t\t-publicCertFile  Public certificate file name, optional for generateJwk commands")
+                .append("\n\t\t-expiry \t JWT expiry in seconds, required for generateJwt command")
+                .append("\n\t\t-privateKeyFile  Private key path and filename, required for generateJwt command")
+                .append("\n\t\t-publicKeyFile \t Public key path and filename, required for generateJwk command")
+                .append("\n\t\t-publicCertFile  Public certificate path and filename, required for generateJwk command")
                 .append("\n\n\tEXAMPLES")
-                .append("\n\t\tjava -jar key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile PrivateKeyFile.key")
-                .append("\n\t\tjava -jar key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile PublicKeyFile.key -publicCertFile PublicCertFile.crt");
+                .append("\n\t\tjava -jar {path/to/}key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile {path/to/}PrivateKeyFile.key")
+                .append("\n\t\tjava -jar {path/to/}key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt")
+                .append("\n\tIn these examples, {path/to/} is the path to the specified file.");
 
         return sb.toString();
     }
