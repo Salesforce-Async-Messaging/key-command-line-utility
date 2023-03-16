@@ -57,3 +57,6 @@ These commands output a JWK and JWT.
 
 * When creating a JWK, copy and paste the output to a `.json` file.
 * To inspect the encoded JWT output, you can use a site like [JWT.io](https://jwt.io/) to see the decoded data.
+
+> **Warning**
+> Don’t share production JWTs with other organizations and don’t paste production JWTs into sites or tools.
