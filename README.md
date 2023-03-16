@@ -53,4 +53,7 @@ where `{path/to/}` is the path to the command line utility jar file.
 		
 	In these examples, {path/to/} is the path to the specified file.
 	
-These commands output a JWK and JWT. When creating a JWK, copy and paste the output to a `.json` file.
+These commands output a JWK and JWT.
+
+* When creating a JWK, copy and paste the output to a `.json` file.
+* To inspect the encoded JWT output, you can use a site like [JWT.io](https://jwt.io/) to see the decoded data.
