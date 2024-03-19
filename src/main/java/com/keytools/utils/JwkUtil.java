@@ -20,21 +20,23 @@ public class JwkUtil {
 
     public static JWKey getJWK(PublicKey publicKey,
                                String kid,
-                               X509Certificate x509Certificate)
+                               X509Certificate x509Certificate,
+                               JWSAlgorithm algorithm)
             throws CertificateEncodingException {
 
         RSAPublicKey publicRsaKey = (RSAPublicKey) publicKey;
-        return getJWK(publicRsaKey, kid, x509Certificate);
+        return getJWK(publicRsaKey, kid, x509Certificate, algorithm);
     }
 
     public static JWKey getJWK(RSAPublicKey publicRsaKey,
                                String kid,
-                               X509Certificate x509Certificate)
+                               X509Certificate x509Certificate,
+                               JWSAlgorithm algorithm)
             throws CertificateEncodingException {
 
         RSAKey jwk = new RSAKey.Builder(publicRsaKey)
                 .keyUse(KeyUse.SIGNATURE)
-                .algorithm(JWSAlgorithm.RS256)
+                .algorithm(algorithm)
                 .x509CertChain(Arrays.asList(Base64.encode(
                         x509Certificate.getEncoded())))
                 .keyID(kid)
@@ -45,16 +47,16 @@ public class JwkUtil {
 
     private static JWKey convertRsaKeyToJWKey(RSAKey rsaKey) {
         JWKey jwKey = new JWKey(rsaKey.getKeyID(),
-                Objects.toString(rsaKey.getAlgorithm(), null),
-                rsaKey.getKeyUse().toString(),
-                rsaKey.getKeyType().toString(),
-                Objects.toString(rsaKey.getX509CertURL(), null),
-                Objects.toString(rsaKey.getX509CertSHA256Thumbprint(), null),
-                rsaKey.getX509CertChain(),
-                "y",
-                Objects.toString(rsaKey.getModulus(), null),
-                Objects.toString(rsaKey.getPublicExponent(), null),
-                "crv", "d", "k");
+                                Objects.toString(rsaKey.getAlgorithm(), null),
+                                rsaKey.getKeyUse().toString(),
+                                rsaKey.getKeyType().toString(),
+                                Objects.toString(rsaKey.getX509CertURL(), null),
+                                Objects.toString(rsaKey.getX509CertSHA256Thumbprint(), null),
+                                rsaKey.getX509CertChain(),
+                                "y",
+                                Objects.toString(rsaKey.getModulus(), null),
+                                Objects.toString(rsaKey.getPublicExponent(), null),
+                                "crv", "d", "k");
         return jwKey;
     }
 

@@ -1,11 +1,10 @@
 package com.keytools.utils;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.security.KeyFactory;
 import java.security.cert.*;
 import java.security.interfaces.RSAPrivateKey;
@@ -22,8 +21,6 @@ public class KeyUtil {
     private static final String PRIVATE_KEY_FILE_NAME = "PrivateKeyFile.key";
     private static final String PUBLIC_CERTIFICATE_FILE_NAME = "PublicCertFile.crt";
 
-    private static final Path RESOURCES_PATH = Paths.get(KeyUtil.class.getResource("/").getPath());
-
 
     public static RSAPublicKey readPublicKey() throws Exception {
         return readPublicKey(getPublicKeyFilePath());
@@ -36,7 +33,7 @@ public class KeyUtil {
                 .replaceAll(KEY_BEGIN_END_REGEX, "")
                 .replaceAll(System.lineSeparator(), "");
 
-         byte[] encoded = Base64.getDecoder().decode(publicKeyPEM);
+        byte[] encoded = Base64.getDecoder().decode(publicKeyPEM);
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
@@ -94,17 +91,23 @@ public class KeyUtil {
 
 
     public static Path getResourcesPath() {
-        return RESOURCES_PATH;
+        try {
+            return Paths.get(KeyUtil.class.getResource(File.separator).toURI());
+        } catch (URISyntaxException e) {
+            System.out.println("Unable to retrieve the resource path for the KeyUtil class");
+        }
+
+        return null;
     }
 
     public static Path getPublicCertificateFilePath() {
         // System.out.println("Resource path1: " + Paths.get(KeyUtil.class.getResource("/").getPath()));
-        return Paths.get(String.format("%s/%s", RESOURCES_PATH.toAbsolutePath(), PUBLIC_CERTIFICATE_FILE_NAME));
+        return Paths.get(String.format("%s%s%s", getResourcesPath().toAbsolutePath(), File.separator, PUBLIC_CERTIFICATE_FILE_NAME));
     }
 
     public static Path getPublicKeyFilePath() {
         // System.out.println("Resource path1: " + Paths.get(KeyUtil.class.getResource("/").getPath()));
-        return Paths.get(String.format("%s/%s", RESOURCES_PATH.toAbsolutePath(), PUBLIC_KEY_FILE_NAME));
+        return Paths.get(String.format("%s%s%s", getResourcesPath().toAbsolutePath(), File.separator, PUBLIC_KEY_FILE_NAME));
     }
 
     public static Path getPrivateKeyFilePath() {
@@ -118,7 +121,7 @@ public class KeyUtil {
     public static Path getFilePath(String path) {
         //System.out.println("Resource path:: getFilePath: " + Paths.get(path));
         //System.out.println("Resource path:: getFilePath: " + Paths.get(path).toAbsolutePath());
-        return Paths.get(path);
+        return FileSystems.getDefault().getPath(path);
     }
 
     private static String readKeyFromFile(String path) throws IOException {

@@ -1,5 +1,7 @@
 package com.keytools.cmd;
 
+import com.nimbusds.jose.JWSAlgorithm;
+
 import java.util.HashMap;
 
 public class Command {
@@ -13,7 +15,7 @@ public class Command {
     private String privateKeyFile;
     private String publicKeyFile;
     private String publicCertFile;
-
+    private JWSAlgorithm algorithm;
 
     private HashMap<CommandArgumentEnum, String> cmdArguments = new HashMap<>();
 
@@ -44,6 +46,9 @@ public class Command {
         this.privateKeyFile = cmdArguments.get(CommandArgumentEnum.CMD_ARGUMENT_PRIVATE_KEY_FILE);
         this.publicKeyFile = cmdArguments.get(CommandArgumentEnum.CMD_ARGUMENT_PUBLIC_KEY_FILE);
         this.publicCertFile = cmdArguments.get(CommandArgumentEnum.CMD_ARGUMENT_PUBLIC_CERT_FILE);
+        String algorithmArgValue = cmdArguments.get(CommandArgumentEnum.CMD_ARGUMENT_ALGORITHM);
+        // Defaulting to JWSAlgorithm.RS256
+        this.algorithm = algorithmArgValue == null ? JWSAlgorithm.RS256 : JWSAlgorithm.parse(algorithmArgValue);
     }
 
     private String getArgumentValue(String[] args, int argPosition) {
@@ -89,9 +94,9 @@ public class Command {
     private boolean hasValidJwtCommandArguments() {
         if (this.kid == null || this.issuer == null
                 || this.subject == null || this.expiry == null) {
-               // || this.privateKeyFile == null) {
+            // || this.privateKeyFile == null) {
             System.out.println("To generate JWT these are required arguments: -kid, " +
-                    "-issuer, -subject, -expiry -privateKeyFile");
+                                       "-issuer, -subject, -expiry -privateKeyFile");
             return false;
         }
 
@@ -128,5 +133,9 @@ public class Command {
 
     public String getPublicCertFile() {
         return publicCertFile;
+    }
+
+    public JWSAlgorithm getAlgorithm() {
+        return algorithm;
     }
 }
