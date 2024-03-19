@@ -29,7 +29,7 @@ import com.keytools.utils.KeyUtil;
  * 	EXAMPLES
  * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -alg RS256 -privateKeyFile {path/to/}PrivateKeyFile.key
  * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -alg RS256 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
- * 	In these examples, {path/to/} is the path to the specified file. Possible values for algorithm are mentioned here : https://www.javadoc.io/doc/com.nimbusds/nimbus-jose-jwt/5.1/com/nimbusds/jose/JWSAlgorithm.html
+ * 	In these examples, {path/to/} is the path to the specified file. Possible values for algorithm are RS256 and RS512.
  *
  */
 public class KeyGenerator {
