@@ -53,7 +53,7 @@ where `{path/to/}` is the path to the command line utility jar file.
 		java -jar {path/to/}key-command-line-utility.jar --generateJwk -kid 12345 -alg RS256 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
 		
 	In these examples, {path/to/} is the path to the specified file. 
-	Possible values for algorithm are mentioned here : https://www.javadoc.io/doc/com.nimbusds/nimbus-jose-jwt/5.1/com/nimbusds/jose/JWSAlgorithm.html
+	Possible values for algorithm that are supported is: RS256 and RS512.
 
 These commands output a JWK and JWT.
 
