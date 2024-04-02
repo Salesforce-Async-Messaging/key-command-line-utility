@@ -20,7 +20,7 @@ Alternatively, you can download a ZIP of the repository, unzip it, and build the
 
 #### 2. Build the project
 
-Be sure that you have Maven and Java 11 or more recent installed on your system and then enter the following command. 
+Be sure that you have Maven and Java 11 or more recent installed on your system and then enter the following command.
 
 `mvn clean install`
 
@@ -43,16 +43,18 @@ where `{path/to/}` is the path to the command line utility jar file.
 		-issuer 	 JWT issuer, required for generateJwt command
 		-subject 	 Subject, required for generateJwt command
 		-expiry 	 JWT expiry in seconds, required for generateJwt command
+		-alg         	 Algorithm to be used for signing the JWT, Default is RS256 (optional)
 		-privateKeyFile  Private key path and filename, required for generateJwt command
 		-publicKeyFile 	 Public key path and filename, required for generateJwk command
 		-publicCertFile  Public certificate path and filename, required for generateJwk command
 
 	EXAMPLES
-		java -jar {path/to/}key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile {path/to/}PrivateKeyFile.key
-		java -jar {path/to/}key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
+		java -jar {path/to/}key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -alg RS256 -privateKeyFile {path/to/}PrivateKeyFile.key
+		java -jar {path/to/}key-command-line-utility.jar --generateJwk -kid 12345 -alg RS256 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
 		
-	In these examples, {path/to/} is the path to the specified file.
-	
+	In these examples, {path/to/} is the path to the specified file. 
+	Possible values for algorithm that are supported is: RS256 and RS512.
+
 These commands output a JWK and JWT.
 
 * When creating a JWK, copy and paste the output to a `.json` file.

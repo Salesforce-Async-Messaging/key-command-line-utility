@@ -12,7 +12,8 @@ public enum CommandArgumentEnum {
     CMD_ARGUMENT_EXPIRY("-expiry", "Expiry"),
     CMD_ARGUMENT_PRIVATE_KEY_FILE("-privateKeyFile", "PrivateKeyFile"),
     CMD_ARGUMENT_PUBLIC_KEY_FILE("-publicKeyFile", "PublicKeyFile"),
-    CMD_ARGUMENT_PUBLIC_CERT_FILE("-publicCertFile", "PublicCertFile");
+    CMD_ARGUMENT_PUBLIC_CERT_FILE("-publicCertFile", "PublicCertFile"),
+    CMD_ARGUMENT_ALGORITHM("-alg", "Alg");
 
     private static final com.google.common.collect.ImmutableMap<String, CommandArgumentEnum> $COMMAND_ARGUMENT;
     private String cmdLineArgumentString;

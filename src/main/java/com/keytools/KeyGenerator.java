@@ -21,19 +21,20 @@ import com.keytools.utils.KeyUtil;
  * 		-issuer 	     JWT Issuer, required for generateJwt commands
  * 		-subject 	     Subject, required for generateJwt commands
  * 		-expiry 	     JWT expiry in seconds, required for generateJwt command
+ * 		-alg             Algorithm to be used for signing JWT, Default is RS256 (optional)"
  * 		-privateKeyFile  Private key path and filename, required for generateJwt command
  * 		-publicKeyFile 	 Public key path and filename, required for generateJwk command
  * 		-publicCertFile  Public certificate path and filename, required for generateJwk command
  *
  * 	EXAMPLES
- * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile {path/to/}PrivateKeyFile.key
- * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
- * 	In these examples, {path/to/} is the path to the specified file.
+ * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -alg RS256 -privateKeyFile {path/to/}PrivateKeyFile.key
+ * 		java -jar {path/to/}key-command-line-utility/target/key-command-line-utility.jar --generateJwk -kid 12345 -alg RS256 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt
+ * 	In these examples, {path/to/} is the path to the specified file. Possible values for algorithm are RS256 and RS512.
+ *
  */
 public class KeyGenerator {
 
     private static final String USAGE = generateUsage();
-
 
     public static void main(String[] args) throws Exception {
 
@@ -68,7 +69,8 @@ public class KeyGenerator {
                 cmd.getKid(),
                 cmd.getPublicCertFile() == null ?
                         KeyUtil.getX509Certificate() :
-                        KeyUtil.getX509Certificate(KeyUtil.getFilePath(cmd.getPublicCertFile())));
+                        KeyUtil.getX509Certificate(KeyUtil.getFilePath(cmd.getPublicCertFile())),
+                cmd.getAlgorithm());
 
         System.out.println("JWK : " + objectMapper.writeValueAsString(jwkey));
     }
@@ -82,7 +84,8 @@ public class KeyGenerator {
                 cmd.getPrivateKeyFile() == null ?
                         KeyUtil.readPrivateKey() :
                         KeyUtil.readPrivateKey(KeyUtil.getFilePath(cmd.getPrivateKeyFile())),
-                cmd.getKid());
+                cmd.getKid(),
+                cmd.getAlgorithm());
 
         System.out.println("JWT : " + token);
     }
@@ -100,9 +103,10 @@ public class KeyGenerator {
                 .append("\n\t\t-issuer \t JWT Issuer, required for generateJwt commands")
                 .append("\n\t\t-subject \t Subject, required for generateJwt commands")
                 .append("\n\t\t-expiry \t JWT expiry in seconds, required for generateJwt command")
-                .append("\n\t\t-privateKeyFile  Private key path and filename, required for generateJwt command")
+                .append("\n\t\t-alg \t Optional value for specifying the algorithm used for signing JWT, Default is RS256")
+                .append("\n\t\t-privateKeyFile Private key path and filename, required for generateJwt command")
                 .append("\n\t\t-publicKeyFile \t Public key path and filename, required for generateJwk command")
-                .append("\n\t\t-publicCertFile  Public certificate path and filename, required for generateJwk command")
+                .append("\n\t\t-publicCertFile Public certificate path and filename, required for generateJwk command")
                 .append("\n\n\tEXAMPLES")
                 .append("\n\t\tjava -jar {path/to/}key-command-line-utility.jar --generateJwt -kid 12345 -issuer testIssuer -subject user1 -expiry 6000 -privateKeyFile {path/to/}PrivateKeyFile.key")
                 .append("\n\t\tjava -jar {path/to/}key-command-line-utility.jar --generateJwk -kid 12345 -publicKeyFile {path/to/}PublicKeyFile.key -publicCertFile {path/to/}PublicCertFile.crt")

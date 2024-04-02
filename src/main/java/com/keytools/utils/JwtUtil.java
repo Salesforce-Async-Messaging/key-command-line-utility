@@ -14,11 +14,11 @@ import java.util.Date;
 
 public class JwtUtil {
     public static String getJWTToken(String issuer,
-                              String subject,
-                              Integer jwtExpInSeconds,
-                              PrivateKey privateKey,
-                              String kid)
-            throws JOSEException {
+                                     String subject,
+                                     Integer jwtExpInSeconds,
+                                     PrivateKey privateKey,
+                                     String kid,
+                                     JWSAlgorithm algorithm) throws JOSEException {
 
         // Create RSA-signer with the private key
         JWSSigner signer = new RSASSASigner(privateKey);
@@ -33,7 +33,7 @@ public class JwtUtil {
                 .build();
 
         SignedJWT signedJWT = new SignedJWT(
-                new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(kid).build(),
+                new JWSHeader.Builder(algorithm).keyID(kid).build(),
                 claimsSet);
 
         // Compute the RSA signature
